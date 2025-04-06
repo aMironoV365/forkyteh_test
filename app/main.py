@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends
-from models import WalletRequest, get_db, Base, engine
+from .models import WalletRequest, get_db, Base, engine
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from tronpy import Tron
-from schemas import WalletRequestSchema, WalletResponseSchema
+from .schemas import WalletRequestSchema, WalletResponseSchema
 from contextlib import asynccontextmanager
 
 

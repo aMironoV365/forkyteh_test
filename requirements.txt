@@ -31,6 +31,7 @@ pycryptodome==3.22.0
 pydantic==2.11.1
 pydantic_core==2.33.0
 pytest==8.3.5
+pytest-asyncio==0.26.0
 python-dotenv==1.1.0
 regex==2024.11.6
 requests==2.32.3
