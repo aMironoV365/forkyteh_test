@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends, Request
-from .models import WalletRequest, get_db, Base, engine
+from .models import WalletRequest, Base
+from .database import get_db, engine
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from tronpy import Tron
