@@ -1,5 +1,6 @@
 ![CI](https://github.com/aMironoV365/forkyteh_test/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.11-blue.svg)
+![Coverage](https://img.shields.io/badge/coverage-81%25-yellowgreen.svg)
 
 # ForkyTeh Test Project
 
