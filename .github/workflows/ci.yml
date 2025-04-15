@@ -1,0 +1,47 @@
+name: Full CI with Coverage
+
+on: [push, pull_request]
+
+jobs:
+  lint_and_test:
+    name: Lint & Test (host)
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install flake8 black pytest pytest-cov
+
+    - name: Format check (black)
+      run: black . --check --diff
+
+    - name: Lint (flake8)
+      run: flake8 .
+
+    - name: Run tests with coverage (host)
+      run: |
+        pytest --cov=app --cov-report=term-missing --cov-fail-under=0
+
+  docker_build_and_test:
+    name: Docker Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build Docker image
+      run: docker build -t forkyteh_test .
+
+    - name: Run tests with coverage inside container
+      run: docker run --rm forkyteh_test pytest --cov=app --cov-report=term-missing --cov-fail-under=0
