@@ -5,7 +5,8 @@ from sqlalchemy.orm import sessionmaker
 from tronpy import Tron
 
 from app.main import app
-from app.models import Base, get_db
+from app.models import Base
+from app.database import get_db
 
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
