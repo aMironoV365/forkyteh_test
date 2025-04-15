@@ -4,7 +4,7 @@ from app.models import WalletRequest
 
 
 @pytest.mark.asyncio
-async def test_get_wallet_info(client, async_session)-> None:
+async def test_get_wallet_info(client, async_session) -> None:
     """
     Интеграционный тест для POST /wallet:
     - Проверяет успешный ответ от сервера.
