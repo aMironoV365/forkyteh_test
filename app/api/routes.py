@@ -8,7 +8,7 @@ from ..database import get_db
 router = APIRouter()
 
 
-@router.post("/wallet", response_model=WalletResponseSchema)
+@router.post("/wallet", response_model=WalletResponseSchema, summary="Получить информацию о кошельке")
 async def get_wallet_info(
     request: WalletRequestSchema,
     db: AsyncSession = Depends(get_db),
@@ -41,7 +41,7 @@ async def get_wallet_info(
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@router.get("/wallets")
+@router.get("/wallets", summary="Получить список всех кошельков")
 async def get_wallet_requests(
     db: AsyncSession = Depends(get_db), skip: int = 0, limit: int = 10
 ):
