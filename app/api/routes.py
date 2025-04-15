@@ -8,7 +8,11 @@ from ..database import get_db
 router = APIRouter()
 
 
-@router.post("/wallet", response_model=WalletResponseSchema, summary="Получить информацию о кошельке")
+@router.post(
+    "/wallet",
+    response_model=WalletResponseSchema,
+    summary="Получить информацию о кошельке",
+)
 async def get_wallet_info(
     request: WalletRequestSchema,
     db: AsyncSession = Depends(get_db),

@@ -1,3 +1,5 @@
+![CI](https://github.com/aMironoV365/forkyteh_test/actions/workflows/ci.yml/badge.svg)
+
 # ForkyTeh Test Project
 
 Проект для тестирования интеграции с Tron blockchain через FastAPI.

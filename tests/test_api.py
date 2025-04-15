@@ -4,11 +4,11 @@ from app.models import WalletRequest
 
 
 @pytest.mark.asyncio
-async def test_get_wallet_info(client, async_session)-> None:
+async def test_get_wallet_info(client, async_session) -> None:
     """
     Интеграционный тест для POST /wallet:
     - Проверяет успешный ответ от сервера.
-    - Проверяет корректность возвращённых данных (баланс, энергия и пропускная способность).
+    - Проверяет корректность возвращённых данных.
     - Проверяет, что адрес кошелька был сохранён в базу данных.
     """
     test_address = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
