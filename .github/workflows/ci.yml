@@ -21,6 +21,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Copy .env file
+      run: cp .env .env
+
     - name: Format check (black)
       run: black .
 
@@ -39,8 +42,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Copy .env file to Docker context
+      run: cp .env .env
+
     - name: Build Docker image
       run: docker build -t forkyteh_test .
 
     - name: Run tests with coverage inside container
       run: docker run --rm forkyteh_test pytest --cov=app --cov-report=term-missing --cov-fail-under=0
+
